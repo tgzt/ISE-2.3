@@ -1,5 +1,5 @@
 import sys
-sys.path.append(r"C:\Users\TomG\Documents\Python ISE")
+sys.path.append(r"C:\Users\TomG\Documents\Python ISE\ISE-2.3")
 """
 requires xmltodict
 """
