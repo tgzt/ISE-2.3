@@ -1,0 +1,96 @@
+EPG:
+NAME: HRSA_Mobile
+UUID: 8cfec910-fc5f-11e7-8515-000c29e4bcaf
+DESC: 
+SYST: false
+***
+NAME: Sony-Device
+UUID: 38a73670-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Sony-Device
+SYST: true
+***
+NAME: Cisco-Meraki-Device
+UUID: 1e2700a0-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Cisco-Meraki-Device
+SYST: true
+***
+NAME: Apple-iDevice
+UUID: 0a4a50f0-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Apple-iDevice
+SYST: true
+***
+NAME: BlackBerry
+UUID: 0cc7ad00-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: BlackBerry
+SYST: true
+***
+NAME: Android
+UUID: ffa36b00-8bff-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Android
+SYST: true
+***
+NAME: Axis-Device
+UUID: 0c4eac70-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Axis-Device
+SYST: true
+***
+NAME: Juniper-Device
+UUID: 2b07d100-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Juniper-Device
+SYST: true
+***
+NAME: Epson-Device
+UUID: 22c6c780-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Epson-Device
+SYST: true
+***
+NAME: Profiled
+UUID: aa10ae00-8bff-11e6-996c-525400b48521
+DESC: Profiled Identity Group
+SYST: true
+***
+NAME: Blacklist
+UUID: aa000c30-8bff-11e6-996c-525400b48521
+DESC: Blacklist Identity Group
+SYST: true
+***
+NAME: GuestEndpoints
+UUID: aa178bd0-8bff-11e6-996c-525400b48521
+DESC: Guest Endpoints Identity Group
+SYST: true
+***
+NAME: Synology-Device
+UUID: 3a1b38d0-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Synology-Device
+SYST: true
+***
+NAME: Vizio-Device
+UUID: 3b113190-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Vizio-Device
+SYST: true
+***
+NAME: Trendnet-Device
+UUID: 3a88eec0-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Trendnet-Device
+SYST: true
+***
+NAME: RegisteredDevices
+UUID: aa13bb40-8bff-11e6-996c-525400b48521
+DESC: Asset Registered Endpoints Identity Group
+SYST: true
+***
+NAME: Cisco-IP-Phone
+UUID: 14f5cac0-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Cisco-IP-Phone
+SYST: true
+***
+NAME: Unknown
+UUID: aa0e8b20-8bff-11e6-996c-525400b48521
+DESC: Unknown Identity Group
+SYST: true
+***
+NAME: Workstation
+UUID: 3b76f840-8c00-11e6-996c-525400b48521
+DESC: Identity Group for Profile: Workstation
+SYST: true
+***

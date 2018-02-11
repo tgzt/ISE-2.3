@@ -1,0 +1,4 @@
+de.ad.be.ef.00.aa GuestEndpoints
+de.ad.be.ef.00.aa 
+de.ad.be.ef.00.bb
+de.ad.be.ef.00.bb GuestEndpoints

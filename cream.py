@@ -16,7 +16,9 @@ import re
 import requests
 import xmltodict
 
-base_dir = os.path.dirname(__file__)
+import pprint
+
+base_dir = os.path.dirname(__file__) # print ('CREAM: running from %s' % base_dir
 
 
 class InvalidMacAddress(Exception):
@@ -423,7 +425,12 @@ class ERS(object):
 			result['response'] = '{0} Added Successfully'.format(user_id)
 			return result
 		else:
-			result['response'] = ERS._to_json(resp.text)['ns3:ersResponse']['messages']['message']['title']
+			print ('ERR:',resp.status_code) ; 
+			import pprint ; pprint.pprint(data) ; print ('RESP:',resp.text)
+			try:
+				result['response'] = ERS._to_json(resp.text)['ns3:ersResponse']['messages']['message']['title']
+			except:
+				result['response'] = resp.text
 			result['error'] = resp.status_code
 			return result
 
@@ -691,3 +698,112 @@ class ERS(object):
 			result['response'] = ERS._to_json(resp.text)['ns3:ersResponse']['messages']['message']['title']
 			result['error'] = resp.status_code
 			return result
+############################################################################################
+	def add_endpoint(self,mac,epg_oid):
+		"""
+		Add an enddpoint
+		:param mac: mac of endpoint
+		:param epg_oid: oid of Endpoint Group - set to null for no static assignment
+		:return: Result dictonary
+		"""
+		self.ise.headers.update({'Content-Type': 'application/vnd.com.cisco.ise.identity.endpoint.1.0+xml'})
+		
+		result = {
+			'success': False,
+			'response': '',
+			'error': '',
+		}
+
+		data = open(os.path.join(base_dir, 'xml/ep_add.xml'), 'r').read().format(
+				mac, epg_oid)
+
+		resp = self.ise.post('{0}/config/endpoint'.format(self.url_base), data=data, timeout=self.timeout)
+
+		if resp.status_code == 201:
+			result['success'] = True
+			result['response'] = '{0} Added Successfully'.format(mac)
+			return result
+		else:
+			try:
+				result['response'] = ERS._to_json(resp.text)['ns3:ersResponse']['messages']['message']['title']
+			except:
+				result['response'] = resp.text
+			result['error'] = resp.status_code
+			return result
+			
+	def update_epg_endpoint(self,mac,ep_oid,epg_oid):
+		"""
+		Change an enpoint's group membership
+		:param mac: mac of endpoint
+		:param ep_oid: oid of Endpoint to be updated
+		:param epg_oid: oid of Endpoint Group - set to null for no static assignment
+		:return: Result dictonary
+		"""
+		self.ise.headers.update({'Content-Type': 'application/vnd.com.cisco.ise.identity.endpoint.1.0+xml'})
+		
+		result = {
+			'success': False,
+			'response': '',
+			'error': '',
+		}
+
+		data = open(os.path.join(base_dir, 'xml/ep_add.xml'), 'r').read().format(
+				mac, epg_oid)
+		resp = self.ise.put('{0}/config/endpoint/{1}'.format(self.url_base,ep_oid), data=data, timeout=self.timeout)
+		 
+		if resp.status_code == 200:
+			result['success'] = True
+			result['response'] = '{0} Updated Successfully'.format(mac)
+			return result
+		else:
+			#pprint.pprint(resp) ; pprint.pprint(data)
+			try:
+				result['response'] = ERS._to_json(resp.text)['ns3:ersResponse']['messages']['message']['title']
+			except:
+				result['response'] = resp.text
+			result['error'] = resp.status_code
+			return result
+
+			
+	def delete_endpoint(self, mac):
+			"""
+			Delete a device
+			:param mac: MAC address
+			:return: Result dictionary
+			"""
+			self.ise.headers.update({'Accept': 'application/vnd.com.cisco.ise.identity.endpoint.1.0+xml'})
+
+			result = {
+				'success': False,
+				'response': '',
+				'error': '',
+			}
+
+			resp = self.ise.get('{0}/config/endpoint?filter=mac.EQ.{1}'.format(self.url_base, mac))
+			found_device = ERS._to_json(resp.text)
+
+			if found_device['ns3:searchResult']['@total'] == '1':
+				device_oid = found_device['ns3:searchResult']['ns3:resources']['ns5:resource']['@id']
+				resp = self.ise.delete(
+						'{0}/config/endpoint/{1}'.format(self.url_base, device_oid), timeout=self.timeout)
+
+				if resp.status_code == 204:
+					result['success'] = True
+					result['response'] = '{0} Deleted Successfully'.format(mac)
+					return result
+				elif resp.status_code == 404:
+					result['response'] = '{0} not found'.format(mac)
+					result['error'] = resp.status_code
+					return result
+				else:
+					result['response'] = ERS._to_json(resp.text)['ns3:ersResponse']['messages']['message']['title']
+					result['error'] = resp.status_code
+					return result
+			elif found_device['ns3:searchResult']['@total'] == '0':
+					result['response'] = '{0} not found'.format(mac)
+					result['error'] = 404
+					return result
+			else:
+				result['response'] = ERS._to_json(resp.text)['ns3:ersResponse']['messages']['message']['title']
+				result['error'] = resp.status_code
+				return result

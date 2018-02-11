@@ -1,0 +1,49 @@
+IDENTITY GROUPS
+NAME: GuestType_Weekly (default)
+UUID: 9efe2310-8c01-11e6-996c-525400b48521
+DESC: Identity group mirroring the guest type 
+HREF: https://192.168.2.11:9060/ers/config/identitygroup/9efe2310-8c01-11e6-996c-525400b48521
+PARENT NAC Group:NAC:IdentityGroups:User Identity Groups
+***
+NAME: OWN_ACCOUNTS (default)
+UUID: a19d5f00-8c01-11e6-996c-525400b48521
+DESC: Default OWN_ACCOUNTS (default) User Group
+HREF: https://192.168.2.11:9060/ers/config/identitygroup/a19d5f00-8c01-11e6-996c-525400b48521
+PARENT NAC Group:NAC:IdentityGroups:User Identity Groups
+***
+NAME: GROUP_ACCOUNTS (default)
+UUID: a1bb2030-8c01-11e6-996c-525400b48521
+DESC: Default GROUP_ACCOUNTS (default) User Group
+HREF: https://192.168.2.11:9060/ers/config/identitygroup/a1bb2030-8c01-11e6-996c-525400b48521
+PARENT NAC Group:NAC:IdentityGroups:User Identity Groups
+***
+NAME: Employee
+UUID: a1740510-8c01-11e6-996c-525400b48521
+DESC: Default Employee User Group
+HREF: https://192.168.2.11:9060/ers/config/identitygroup/a1740510-8c01-11e6-996c-525400b48521
+PARENT NAC Group:NAC:IdentityGroups:User Identity Groups
+***
+NAME: GuestType_Daily (default)
+UUID: 9eee92b0-8c01-11e6-996c-525400b48521
+DESC: Identity group mirroring the guest type 
+HREF: https://192.168.2.11:9060/ers/config/identitygroup/9eee92b0-8c01-11e6-996c-525400b48521
+PARENT NAC Group:NAC:IdentityGroups:User Identity Groups
+***
+NAME: GuestType_SocialLogin (default)
+UUID: f240a3c0-7159-11e7-a355-005056aba474
+DESC: Identity group mirroring the guest type 
+HREF: https://192.168.2.11:9060/ers/config/identitygroup/f240a3c0-7159-11e7-a355-005056aba474
+PARENT NAC Group:NAC:IdentityGroups:User Identity Groups
+***
+NAME: GuestType_Contractor (default)
+UUID: 9f048bb0-8c01-11e6-996c-525400b48521
+DESC: Identity group mirroring the guest type 
+HREF: https://192.168.2.11:9060/ers/config/identitygroup/9f048bb0-8c01-11e6-996c-525400b48521
+PARENT NAC Group:NAC:IdentityGroups:User Identity Groups
+***
+NAME: ALL_ACCOUNTS (default)
+UUID: a176c430-8c01-11e6-996c-525400b48521
+DESC: Default ALL_ACCOUNTS (default) User Group
+HREF: https://192.168.2.11:9060/ers/config/identitygroup/a176c430-8c01-11e6-996c-525400b48521
+PARENT NAC Group:NAC:IdentityGroups:User Identity Groups
+***

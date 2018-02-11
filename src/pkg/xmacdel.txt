@@ -1,0 +1,4 @@
+00:11:22:33:44:55 MyGroup
+11:22:33:44:55:66
+aa.bb.cc.dd.ee.ff dotGrp
+de.ad.be.ef.00.01 Unknown

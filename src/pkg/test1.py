@@ -30,13 +30,17 @@ for element in r:
 	print ("***")
 # USERS
 r = ise.get_users()['response']
-for element in r:
-	print ("USER:",element[0])
-	print ("UUID:",element[1])
-	rr=ise.get_user(user_id=element[0])['response']
-	print("GROUP:",rr['identityGroups'])
-print ("ADD USER:")
-r3 = ise.add_user(user_id='EMP002', password='Testing1', user_group_oid=rr['identityGroups'])
+if r != []:
+        for element in r:
+                print ("USER:",element[0])
+                print ("UUID:",element[1])
+                rr=ise.get_user(user_id=element[0])['response']
+                print("GROUP:",rr['identityGroups'])
+else:
+        print("NO USERS")
+rid=ise.get_identity_group('Employee')['response']['@id']
+print ("ADD USER(Employee):",rid)
+r3 = ise.add_user(user_id='EMP002', password='Testing1', user_group_oid=rid)
 r = ise.get_users()['response']
 for element in r:
 	print ("USER:",element[0])
@@ -51,3 +55,4 @@ for element in r:
 	print ("UUID:",element[1])
 	rr=ise.get_user(user_id=element[0])['response']
 	print("GROUP:",rr['identityGroups'])
+	
